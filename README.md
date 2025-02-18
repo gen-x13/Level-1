@@ -15,6 +15,7 @@
 
 ### **🎨 Visualization Options**
 For a better representation of the results, this project offers two visualization modes:
+
 ✅ 2D (classic): A simple and effective approach.
 ✅ 3D (immersive): For a more detailed, visually impactful analysis.
 
