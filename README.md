@@ -40,8 +40,7 @@ It was a great learning experience, and I improved my understanding of **linear 
 ### **▶️ How to Run the Project:**  
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/Level 1 - GB.git
-   git clone https://github.com/Level 1 - FR.git
+   git clone https://github.com/gen-x13/Level-1
    ```
 ---
 
