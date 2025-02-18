@@ -17,6 +17,7 @@
 For a better representation of the results, this project offers two visualization modes:
 
 ✅ 2D (classic): A simple and effective approach.
+
 ✅ 3D (immersive): For a more detailed, visually impactful analysis.
 
 Users can choose between these two modes to observe dataset predictions and trends.
@@ -31,6 +32,7 @@ This is my **first project**, and I’m really proud of it! 🎉
 It was a great learning experience, and I improved my understanding of **linear regression** and **data preprocessing**.
 
 💡 My strengths: Determination & Creativity.
+
 🚀 Areas for improvement: Code optimization (perhaps in a future project 👀).
 
 ---
