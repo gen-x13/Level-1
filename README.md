@@ -41,7 +41,14 @@ It was a great learning experience, and I improved my understanding of **linear 
 1. Clone the repository:  
    ```bash
    git clone https://github.com/your-repo-url.git
-   
+   ```
+---
+
+### **📦 Requirements**  
+Before running the project, make sure you have the following libraries installed:  
+```bash
+pip install pandas matplotlib scikit-learn
+```
 ---
 
 ### **💜 A Reminder:**
