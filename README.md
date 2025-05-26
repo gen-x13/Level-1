@@ -16,9 +16,14 @@
 ### **🎨 Visualization Options**
 For a better representation of the results, this project offers two visualization modes:
 
-✅ 2D (classic): A simple and effective approach.
+✅ 2D (classic): A simple and effective approach :
 
-✅ 3D (immersive): For a more detailed, visually impactful analysis.
+<img width="497" alt="Figure 2025-05-26 201915" src="https://github.com/user-attachments/assets/b42d31bf-a945-4972-acfe-56b8a7260f9c" />
+
+
+✅ 3D (immersive): For a more detailed, visually impactful analysis :
+
+<img width="380" alt="Figure 2025-05-26 201943" src="https://github.com/user-attachments/assets/b7180c62-6b93-41c1-8e0e-459213aade87" />
 
 Users can choose between these two modes to observe dataset predictions and trends.
 
