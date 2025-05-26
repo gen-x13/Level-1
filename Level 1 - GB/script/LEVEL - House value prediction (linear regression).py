@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 # Loading the dataset (sourced from Kaggle: housing.csv)
@@ -98,7 +99,7 @@ y_pred = model.predict(X_test)  # Model's predictions
 #  Root mean square error
 
 mse = mean_squared_error(y_test, y_pred)
-rmse = mean_squared_error(y_test, y_pred, squared=False) # root mean squared error
+rmse = np.sqrt(mse) # root mean squared error
 
 # Calculation of the coefficient of determination R²
 
@@ -107,7 +108,7 @@ r2 = r2_score(y_test, y_pred)
 # Displaying metrics
 
 print(f'Mean Squared Error (MSE): {mse:.2f}')
-print(f'Root Mean Squared Error (RMSE): {rmse:.2f}')
+print(f'Root Mean Squared Error (RMSE): {rmse}')
 print(f'R² Score: {r2:.2f}')  # Adding the R²
 
 # Asking the user werever they want a 3D or 2D visualization :
@@ -155,19 +156,22 @@ while a not in ["3D", "2D"]:
     
     elif a == "2D" :
         
-        # Visualization of tested and predicted values in 3D :
-    
-        fig = plt.figure() #Creation of the figure
         
+        # Convert y_test to 1D array for compatibility
+        y_test_flat = y_test.values.flatten()
+
         # Graph
-        
-        plt.scatter(y_test, y_pred, alpha=0.6)
-        
-        plt.plot(y_test, y_test, alpha=0.6, color='red', linestyle='--')
-        
+        plt.figure(figsize=(8,6))
+        plt.scatter(y_test_flat, y_pred, alpha=0.6, label="Predicted vs Actual")
+        plt.plot(y_test_flat, y_test_flat, color='red', linestyle='--', label="Perfect Prediction")
+        plt.xlabel("Actual House Prices")
+        plt.ylabel("Predicted House Prices")
+        plt.title("Actual vs Predicted House Prices")
+        plt.legend()
+        plt.grid(True)
         plt.show()
+
     
     else:
         
         print("Try again. Type : 2D or 3D.")
-    
