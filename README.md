@@ -51,6 +51,12 @@ pip install pandas matplotlib scikit-learn
 ```
 ---
 
+## 📝 License
+
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
+
+---
+
 ### **💜 A Reminder:**
 
 ***Never give up !***
