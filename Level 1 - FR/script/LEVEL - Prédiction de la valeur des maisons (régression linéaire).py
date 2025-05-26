@@ -8,6 +8,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 # Chargement du jeu de données (source Kaggle : housing.csv)
 
@@ -99,7 +100,7 @@ y_pred = model.predict(X_test)  # Prédictions du modèle
 # Erreur quadratique moyenne
 
 mse = mean_squared_error(y_test, y_pred)
-rmse = mean_squared_error(y_test, y_pred, squared=False) # Erreur quadratique moyenne
+rmse = np.sqrt(mse) # root mean squared error
 
 # Calcul du coefficient de détermination R²
 
@@ -159,16 +160,19 @@ while a not in ["3D", "2D"]:
     
     elif a == "2D" :
         
-        # Visualisation des valeurs testées et prédites en 3D :
-    
-        fig = plt.figure() #Création de la figure
         
+        # Convertir y_test en tableau 1D pour des raisons de compatibilité
+        y_test_flat = y_test.values.flatten()
+
         # Graphique
-        
-        plt.scatter(y_test, y_pred, alpha=0.6)
-        
-        plt.plot(y_test, y_test, alpha=0.6, color='red', linestyle='--')
-        
+        plt.figure(figsize=(8,6))
+        plt.scatter(y_test_flat, y_pred, alpha=0.6, label="Predicted vs Actual")
+        plt.plot(y_test_flat, y_test_flat, color='red', linestyle='--', label="Perfect Prediction")
+        plt.xlabel("Actual House Prices")
+        plt.ylabel("Predicted House Prices")
+        plt.title("Actual vs Predicted House Prices")
+        plt.legend()
+        plt.grid(True)
         plt.show()
     
     else:
