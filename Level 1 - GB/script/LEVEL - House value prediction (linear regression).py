@@ -111,6 +111,10 @@ print(f'Mean Squared Error (MSE): {mse:.2f}')
 print(f'Root Mean Squared Error (RMSE): {rmse}')
 print(f'R² Score: {r2:.2f}')  # Adding the R²
 
+print("X_test['RM'].shape:", X_test['RM'].shape)
+print("X_test['PTRATIO'].shape:", X_test['PTRATIO'].shape)
+print("y_test.values.flatten().shape:", y_test.values.flatten().shape)
+
 # Asking the user werever they want a 3D or 2D visualization :
 
 a = ""
@@ -130,7 +134,13 @@ while a not in ["3D", "2D"]:
         # Graph of actual values :
             
         ax1 = fig.add_subplot(121, projection='3d') # Making the 3D object for the visualization
-        ax1.scatter(X_test['RM'], X_test['PTRATIO'], y_test, c=y_test, cmap='Blues')
+        
+        # Since I've met an error on their shapes, I will convert them explicitly with
+        # numpy in an array to avoid a conflict resulting in a 98 x 98 data size
+        # instead of only 98 like the flatten shape of the y_test values.
+        
+        ax1.scatter(X_test['RM'].to_numpy(), X_test['PTRATIO'].to_numpy(), 
+                    y_test.to_numpy().ravel(), c=y_test.to_numpy().ravel(), cmap='Blues')
     
         # Price prediction based on Average Rooms and Pupil-Teacher Ratio
     
@@ -142,7 +152,7 @@ while a not in ["3D", "2D"]:
         # Graph of predictions :
             
         ax2 = fig.add_subplot(122, projection='3d') # Making the 3D object for the visualization
-        ax2.scatter(X_test['RM'], X_test['PTRATIO'], y_pred, c=y_pred, cmap='PuRd')
+        ax2.scatter(X_test['RM'], X_test['PTRATIO'], y_pred.flatten(), c=y_pred, cmap='PuRd')
     
         # Price prediction based on Average Rooms and Pupil-Teacher Ratio
     
@@ -175,3 +185,4 @@ while a not in ["3D", "2D"]:
     else:
         
         print("Try again. Type : 2D or 3D.")
+    
