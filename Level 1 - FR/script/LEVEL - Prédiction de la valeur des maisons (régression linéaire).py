@@ -1,4 +1,4 @@
-""" #genxcode - LEVEL : Prédiction de la valeur des maisons (régression linéaire) """
+""" #genxcode - LEVEL : Prédiction de la valeur des maisons (régression linéaire) Feb 18, 2025 """
 
 # Modules nécessaires au traitement et à la visualisation des données
 
@@ -131,7 +131,13 @@ while a not in ["3D", "2D"]:
         # Graphique des valeurs réelles :
             
         ax1 = fig.add_subplot(121, projection='3d') # Making the 3D object for the visualization
-        ax1.scatter(X_test['RM'], X_test['PTRATIO'], y_test, c=y_test, cmap='Blues')
+        
+        # Comme j'ai rencontré une erreur sur leurs formes, je vais les convertir explicitement avec
+        # numpy dans un tableau pour éviter un conflit entraînant une taille de données de 98 x 98
+        # au lieu de seulement 98 comme la forme aplatie des valeurs y_test.
+        
+        ax1.scatter(X_test['RM'].to_numpy(), X_test['PTRATIO'].to_numpy(), 
+                    y_test.to_numpy().ravel(), c=y_test.to_numpy().ravel(), cmap='Blues')
     
         # Prévision de prix basée sur le nombre moyen de pièces et 
         # le nombre d'élèves par enseignant
